@@ -3,7 +3,7 @@ name: Deploy NRD Frontend
 on:
   push:
     branches:
-      - main
+      - vite
 
 defaults:
   run:
