@@ -4,6 +4,7 @@ import path from 'path';
 
 export default defineConfig(() => {
   return {
+    base: '/311-local-data',
     build: {
       outDir: 'dist',
     },
