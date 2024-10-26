@@ -62,36 +62,36 @@ function DbProvider({ children, startDate }) {
           DUCKDB_CONFIG.pthreadWorker,
         );
 
-        // register parquet
-        await newDb.registerFileURL(
-          'requests2024.parquet',
-          datasets.parquet.hfYtd2024,
-          4, // HTTP = 4. For more options: https://tinyurl.com/DuckDBDataProtocol
-        );
+        // // register parquet
+        // await newDb.registerFileURL(
+        //   'requests2024.parquet',
+        //   datasets.parquet.hfYtd2024,
+        //   4, // HTTP = 4. For more options: https://tinyurl.com/DuckDBDataProtocol
+        // );
 
-        await newDb.registerFileURL(
-          'requests2023.parquet',
-          datasets.parquet.hfYtd2023,
-          4,
-        );
+        // await newDb.registerFileURL(
+        //   'requests2023.parquet',
+        //   datasets.parquet.hfYtd2023,
+        //   4,
+        // );
 
-        await newDb.registerFileURL(
-          'requests2022.parquet',
-          datasets.parquet.hfYtd2022,
-          4,
-        );
+        // await newDb.registerFileURL(
+        //   'requests2022.parquet',
+        //   datasets.parquet.hfYtd2022,
+        //   4,
+        // );
 
-        await newDb.registerFileURL(
-          'requests2021.parquet',
-          datasets.parquet.hfYtd2021,
-          4,
-        );
+        // await newDb.registerFileURL(
+        //   'requests2021.parquet',
+        //   datasets.parquet.hfYtd2021,
+        //   4,
+        // );
 
-        await newDb.registerFileURL(
-          'requests2020.parquet',
-          datasets.parquet.hfYtd2020,
-          4,
-        );
+        // await newDb.registerFileURL(
+        //   'requests2020.parquet',
+        //   datasets.parquet.hfYtd2020,
+        //   4,
+        // );
 
         // Create db connection
         const newConn = await newDb.connect();

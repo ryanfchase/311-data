@@ -504,6 +504,9 @@ class Map extends React.Component {
             this.resetAddressSearch(); // Clear address search input
             dispatchCloseBoundaries(); // Collapse boundaries section
             const selectedCouncilId = Number(feature.properties.NC_ID);
+
+            // todo: RC says this is potentially junk
+            // why is this necessary? We already know the id. we need to have the entire object? what's in the object that we don't already have?
             const newSelectedCouncil = councils.find(
               ({ councilId }) => councilId === selectedCouncilId
             );
@@ -512,7 +515,10 @@ class Map extends React.Component {
               : [newSelectedCouncil];
             dispatchUpdateSelectedCouncils(newSelected);
             dispatchUpdateUnselectedCouncils(councils);
-            dispatchUpdateNcId(selectedCouncilId);
+            // we even just update the id here !?!
+            // so why set the whole "selectedCouncil".
+            // And why "unselectedCouncil"?!??!?!
+            dispatchUpdateNcId(selectedCouncilId); 
             return this.ncLayer.selectRegion(feature.id);
           case 'cc-fills':
             return this.ccLayer.selectRegion(feature.id);

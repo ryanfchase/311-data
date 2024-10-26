@@ -14,6 +14,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const timeout = async (ms) => await new Promise(resolve => setTimeout(resolve, ms));
+
 function LastUpdated() {
   const classes = useStyles();
   const [lastUpdated, setLastUpdated] = useState('');
@@ -21,15 +23,17 @@ function LastUpdated() {
 
   useEffect(() => {
     const getLastUpdated = async () => {
-      const getLastUpdatedSQL = 'select max(createddate) from requests_2024;';
+      // const getLastUpdatedSQL = 'select max(createddate) from requests_2024;';
 
-      const lastUpdatedAsArrowTable = await conn.query(getLastUpdatedSQL);
-      const results = ddbh.getTableData(lastUpdatedAsArrowTable);
+      // const lastUpdatedAsArrowTable = await conn.query(getLastUpdatedSQL);
+      // const results = ddbh.getTableData(lastUpdatedAsArrowTable);
 
-      if (!isEmpty(results)) {
-        const lastUpdatedValue = results[0];
-        setLastUpdated(lastUpdatedValue);
-      }
+      // if (!isEmpty(results)) {
+      //   const lastUpdatedValue = results[0];
+      //   setLastUpdated(lastUpdatedValue);
+      // }
+      await timeout(3000);
+      setLastUpdated("DEBUG::fake-data::DEBUG")
     };
 
     getLastUpdated();
@@ -39,9 +43,10 @@ function LastUpdated() {
     lastUpdated && (
       <div>
         <Typography variant="body2" className={classes.lastUpdated}>
-          {toNonBreakingSpaces(
+          {lastUpdated}
+          {/* {toNonBreakingSpaces(
             `Data last updated ${moment(lastUpdated).format('MM/DD/YY')}`
-          )}
+          )} */}
         </Typography>
       </div>
     )
