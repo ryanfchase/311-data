@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig(() => {
   return {
-    base: process.env.VITE_ENV.toLocaleLowerCase() === 'dev' ? '/311-data/' : '/',
+    base: process.env.VITE_ENV.toLowerCase() === 'dev' ? '/311-data/' : '/',
     build: {
       outDir: 'dist',
     },
