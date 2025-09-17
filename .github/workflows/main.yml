@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - staging-1
 
 defaults:
   run:
@@ -39,6 +40,8 @@ jobs:
           echo "SOCRATA_TOKEN=${{ secrets.SOCRATA_TOKEN }}" >> .env
           echo "VITE_CONTENTFUL_SPACE=${{ secrets.VITE_CONTENTFUL_SPACE }}" >> .env
           echo "VITE_CONTENTFUL_TOKEN=${{ secrets.VITE_CONTENTFUL_TOKEN }}" >> .env
+          echo "VITE_ENV=${{ vars.VITE_ENV }}" >> .env
+          echo "VITE_CONTACT_FORM=${{ vars.VITE_CONTACT_FORM }}" >> .env
 
       # JamesIves
       - name: Build website

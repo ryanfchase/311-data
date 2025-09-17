@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig(() => {
   return {
-    base: '/311-data/',
+    base: import.meta.VITE_ENV?.toLowerCase() === 'dev' ? '/311-data/' : '/',
     build: {
       outDir: 'dist',
     },
